@@ -1,6 +1,6 @@
 import {Formik, Form,Field} from "formik"
-import {useState} from "react"
-import styles from './createAdForm.scss'
+import fire from '../../config/fire'
+import styles from './createAdForm.module.scss'
 
 function CreateAdForm() {
     return (
@@ -9,51 +9,56 @@ function CreateAdForm() {
                 initialValues={{
                     nameAd: '',
                     descriptionAd: '',
-                    place: '',
-                    status: ''
+                    placeAd: '',
+                    statusAd: ''
                 }}
                 onSubmit={(values) => {
-                    console.log(values)
+                    event.preventDefault();
+                    fire.firestore()
+                        .collection('ads')
+                        .add({...values});
+                    alert('Success')
+
                 }}
             >
                 {({ submitForm }) => (
-                    <Form>
-                        <label htmlFor="nameAd">Advertisment name
-                            <Field id="nameAd" name="nameAd" placeholder="Advertisment name" />
+                    <Form className={styles.form}>
+                        <label htmlFor="nameAd" className={styles.label}>Advertisment name:
+                            <Field id="nameAd" name="nameAd" placeholder="Advertisment name" className={styles.field}/>
                         </label>
-                        <label htmlFor="descriptionAd">Advertisment description
-                            <Field id="descriptionAd" name="descriptionAd" placeholder="Advertisment description" />
+                        <label htmlFor="descriptionAd" className={styles.label}>Advertisment description:
+                            <Field id="descriptionAd" name="descriptionAd" placeholder="Advertisment description" className={styles.field}/>
                         </label>
                         <label>
-                        <div id="checkbox-group">Select place of advertisment</div>
+                        <div id="checkbox-group">Select place of advertisment:</div>
                             <div role="group" aria-labelledby="checkbox-group">
-                                <label>Google
-                                <Field type="checkbox" name="checked" value="Google" />
+                                <label className={styles.labelCheckbox}>Google
+                                <Field type="checkbox" name="placeAd" value="Google" className={styles.fieldCheckbox} />
                                 </label>
-                                <label>Facebook
-                                <Field type="checkbox" name="checked" value="Facebook" />
+                                <label className={styles.labelCheckbox}>Facebook
+                                <Field type="checkbox" name="placeAd" value="Facebook" className={styles.fieldCheckbox} />
                                 </label>
-                                <label>Instagram
-                                <Field type="checkbox" name="checked" value="Instagram" />
+                                <label className={styles.labelCheckbox}>Instagram
+                                <Field type="checkbox" name="placeAd" value="Instagram" className={styles.fieldCheckbox} />
                                 </label>
-                                <label>Youtube
-                                <Field type="checkbox" name="checked" value="Youtube" />
+                                <label className={styles.labelCheckbox}>Youtube
+                                <Field type="checkbox" name="placeAd" value="Youtube" className={styles.fieldCheckbox} />
                                 </label>
-                                <label>Baners
-                                <Field type="checkbox" name="checked" value="Baners" />
+                                <label className={styles.labelCheckbox}>Baners
+                                <Field type="checkbox" name="placeAd" value="Baners" className={styles.fieldCheckbox} />
                                 </label>
-                                <label>TV
-                                <Field type="checkbox" name="checked" value="TV" />
+                                <label className={styles.labelCheckbox}>TV
+                                <Field type="checkbox" name="placeAd" value="TV" className={styles.fieldCheckbox} />
                                 </label>
                             </div>
                             <div id="my-radio-group">Select status:</div>
                             <div role="group" aria-labelledby="my-radio-group">
                                 <label>
-                                <Field type="radio" name="picked" value="Public" />
+                                <Field type="radio" name="statusAd" value="Public" />
                                 Public
                                 </label>
                                 <label>
-                                <Field type="radio" name="picked" value="Draft" />
+                                <Field type="radio" name="statusAd" value="Draft" />
                                 Draft
                                 </label>
                             </div>
