@@ -1,12 +1,12 @@
-import CreateAdForm from "../../components/CreateAdForm/CreateAdForm"
-import Navbar from "../../components"
+import { CreatedAdForm } from "../../components/"
+import { Navbar } from "../../components"
 
 function CreateAd() {
 
     return (
         <>
             <Navbar />
-            <CreateAdForm />
+            <CreatedAdForm />
         </>
     )
 }
