@@ -1,27 +1,14 @@
-import {Formik, Form} from "formik"
-import {useState} from "react"
+import CreateAdForm from "../../components/CreateAdForm/CreateAdForm"
+import Navbar from "../../components"
 
 function CreateAd() {
 
     return (
         <>
-            <Formik
-                initialValues={{
-                    name: '',
-                    description: '',
-                    place: '',
-                    status: ''
-                }}
-                onSubmit={() => {
-                    
-                }}
-            >
-                <Form>
-                    <div id="my-radio-group">
-
-                    </div>
-                </Form>
-            </Formik>
+            <Navbar />
+            <CreateAdForm />
         </>
     )
 }
+
+export default CreateAd
