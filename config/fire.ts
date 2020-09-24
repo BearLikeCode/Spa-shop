@@ -1,15 +1,14 @@
 import firebase from 'firebase'
 
 var firebaseConfig = {
-    apiKey: "AIzaSyClb0HI_E0xrohOGCwQsb-BUbUwI24-1oA",
-    authDomain: "nextjsblog-4e4bd.firebaseapp.com",
-    databaseURL: "https://nextjsblog-4e4bd.firebaseio.com",
-    projectId: "nextjsblog-4e4bd",
-    storageBucket: "nextjsblog-4e4bd.appspot.com",
-    messagingSenderId: "985489808714",
-    appId: "1:985489808714:web:e675a4f0c8f15556a0b5b3",
-    measurementId: "G-67XZX78DLF"
-  };
+  apiKey: "AIzaSyAX45nlMk2M6oke5Mtr-uHJxATf5D9AaM4",
+  authDomain: "spashop-657c5.firebaseapp.com",
+  databaseURL: "https://spashop-657c5.firebaseio.com",
+  projectId: "spashop-657c5",
+  storageBucket: "spashop-657c5.appspot.com",
+  messagingSenderId: "886883092852",
+  appId: "1:886883092852:web:9424a8c3fb71b3bffd0421"
+};
 
 try {
   firebase.initializeApp(firebaseConfig);
