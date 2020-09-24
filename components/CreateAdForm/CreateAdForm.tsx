@@ -1,8 +1,19 @@
 import {Formik, Form,Field} from "formik"
 import fire from '../../config/fire'
 import styles from './createAdForm.module.scss'
+import * as yup from 'yup'
+import { useState } from "react"
+
+const yupSchema = yup({
+    nameAd: yup.string().required('Please enter Advertisement name'),
+    descriptionAd: yup.string().required('Please enter Advertisement description'),
+    placeAd: yup.array().required('Please '),
+    statusAd: yup.string().required('Please enter Advertisement status')
+})
 
 function CreateAdForm() {
+    const [defPlace, setDefPlace] = useState(['Google'])
+
     return (
         <>
             <Formik
@@ -21,16 +32,26 @@ function CreateAdForm() {
 
                 }}
             >
-                {({ submitForm }) => (
+                {({ errors, touched }) => (
                     <Form className={styles.form}>
                         <label htmlFor="nameAd" className={styles.label}>Advertisment name:
                             <Field id="nameAd" name="nameAd" placeholder="Advertisment name" className={styles.field}/>
+                            {errors.nameAd && touched.nameAd ? (
+                                <div>
+                                    {errors.nameAd}
+                                </div>
+                            ) : null}
                         </label>
                         <label htmlFor="descriptionAd" className={styles.label}>Advertisment description:
                             <Field id="descriptionAd" name="descriptionAd" placeholder="Advertisment description" className={styles.field}/>
+                            {errors.descriptionAd && touched.descriptionAd ? (
+                                <div>
+                                    {errors.descriptionAd}
+                                </div>
+                            ):null}
                         </label>
                         <label>
-                        <div id="checkbox-group">Select place of advertisment:</div>
+                            <div id="checkbox-group">Select place of advertisment:</div>
                             <div role="group" aria-labelledby="checkbox-group">
                                 <label className={styles.labelCheckbox}>Google
                                 <Field type="checkbox" name="placeAd" value="Google" className={styles.fieldCheckbox} />
@@ -51,18 +72,18 @@ function CreateAdForm() {
                                 <Field type="checkbox" name="placeAd" value="TV" className={styles.fieldCheckbox} />
                                 </label>
                             </div>
-                            <div id="my-radio-group">Select status:</div>
-                            <div role="group" aria-labelledby="my-radio-group">
-                                <label>
-                                <Field type="radio" name="statusAd" value="Public" />
-                                Public
-                                </label>
-                                <label>
-                                <Field type="radio" name="statusAd" value="Draft" />
-                                Draft
-                                </label>
-                            </div>
                         </label>
+                        <div id="my-radio-group">Select status:</div>
+                        <div role="group" aria-labelledby="my-radio-group">
+                            <label>
+                            <Field type="radio" name="statusAd" value="Public" />
+                            Public
+                            </label>
+                            <label>
+                            <Field type="radio" name="statusAd" value="Draft" />
+                            Draft
+                            </label>
+                        </div>
                         <button
                             type="submit"
                         >
