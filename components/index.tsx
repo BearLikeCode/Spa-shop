@@ -1,3 +1,9 @@
 import Navbar from './Navbar/Navbar'
+import CreatedAdForm from './CreateAdForm/CreateAdForm'
+import CreatedAds from './CreatedAds/CreatedAds'
 
-export default Navbar
+export {
+    Navbar,
+    CreatedAdForm,
+    CreatedAds
+}
