@@ -6,8 +6,10 @@ function Navbar() {
     return (
         <div className={styles.navbar}>
             <div className={classNames('container', styles.navbarRow)}>
-                <Link href="/"><p className={styles.navbarLogo}>SPA Shop</p></Link>
-                <Link href="/user/Profile">User</Link>
+                <Link href="/">
+                    <p className={styles.navbarLogo}>SPA Shop</p>
+                </Link>
+                <Link href="/user/profile">User</Link>
             </div>
         </div>
     )
