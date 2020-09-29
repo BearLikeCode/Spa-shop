@@ -5,4 +5,24 @@
 
 body {
     font-family: Raleway, sans-serif;
+    color: #414141;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .container {
+        width: 300px;
+    }
 }
