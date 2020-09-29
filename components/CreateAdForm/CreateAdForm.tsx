@@ -3,6 +3,7 @@ import fire from '../../config/fire'
 import styles from './createAdForm.module.scss'
 import * as yup from 'yup'
 import { useState } from 'react'
+import moment from 'moment'
 
 const validationSchema = yup.object({
     nameAd: yup.string().required('Please enter Advertisement name'),
@@ -31,7 +32,7 @@ function CreateAdForm() {
                     event.preventDefault()
                     fire.firestore()
                         .collection('ads')
-                        .add({ ...values })
+                        .add({ ...values, dateCreate: moment().unix() })
                     alert('Success')
                 }}
             >
