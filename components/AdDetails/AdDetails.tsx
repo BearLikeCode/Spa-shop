@@ -9,12 +9,10 @@ function AdDetails(props: { id: string }) {
     const [ad, setAd] = useState<adType>({} as adType)
 
     useEffect(() => {
-        async function fetchItem() {
+        (async () => {
             setAd(await getAd(props.id))
-        }
-
-        fetchItem()
-    }, [])
+        })()
+    })
 
     return (
         <div className={'container'}>
@@ -26,11 +24,11 @@ function AdDetails(props: { id: string }) {
                         Types of accommodations:
                         <br />
                         {ad.placeAd &&
-                            ad.placeAd.map((item) => (
-                                <>
+                            ad.placeAd.map((item, index) => (
+                                <span key={index}>
                                     {item}
                                     <br />
-                                </>
+                                </span>
                             ))}
                     </p>
                     <p>{moment.unix(ad.dateCreate).format('MM/DD/YYYY')}</p>
