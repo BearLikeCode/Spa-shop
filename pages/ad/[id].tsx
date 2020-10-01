@@ -1,6 +1,5 @@
 import {useRouter} from "next/router";
-import {Navbar, AdDetails} from "../../components";
-import {useEffect} from "react";
+import {AdDetails} from "../../components";
 
 function ReadAd(props) {
     const router = useRouter();
