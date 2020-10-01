@@ -19,8 +19,8 @@ function AdDetails(props: { id: string }) {
             {ad && (
                 <>
                     <p className={styles.adDetails__title}>Add: {ad.nameAd}</p>
-                    <p>{ad.descriptionAd}</p>
-                    <p>
+                    <p className={styles.adDetails__description}>Description: {ad.descriptionAd}</p>
+                    <p className={styles.adDetails__accommodation}>
                         Types of accommodations:
                         <br />
                         {ad.placeAd &&
@@ -31,7 +31,7 @@ function AdDetails(props: { id: string }) {
                                 </span>
                             ))}
                     </p>
-                    <p>{moment.unix(ad.dateCreate).format('MM/DD/YYYY')}</p>
+                    <p className={styles.adDetails__date}>Date create: {moment.unix(ad.dateCreate).format('MM/DD/YYYY')}</p>
                 </>
             )}
         </div>
