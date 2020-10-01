@@ -4,9 +4,8 @@ import styles from './AdBlockIndexPage.module.scss'
 
 function AdBlockIndexPage(props) {
     const { adProp } = props
-    console.log(adProp)
     return (
-        <div className={styles.adBlock}>
+        <div className={styles.adBlock} key={adProp.id}>
             <Link href="/ad/[id]" as={'/ad/' + adProp.id}>
                 <p className={styles.adBlock__name}>Name: {adProp.nameAd}</p>
             </Link>
