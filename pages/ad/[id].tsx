@@ -8,7 +8,7 @@ function ReadAd(props) {
 
     return (
         <>
-            <AdDetails id={id}/>
+            <AdDetails id={`${id}`} />
         </>
     )
 }
