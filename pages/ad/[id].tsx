@@ -1,7 +1,14 @@
-function ReadAd() {
+import {useRouter} from "next/router";
+import {Navbar, AdDetails} from "../../components";
+import {useEffect} from "react";
+
+function ReadAd(props) {
+    const router = useRouter();
+    const { id } = router.query;
+
     return (
         <>
-            <p>Read Ad</p>
+            <AdDetails id={id}/>
         </>
     )
 }
