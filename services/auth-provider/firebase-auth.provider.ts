@@ -24,6 +24,11 @@ class FirebaseAuthProvider implements AuthProviderContract {
         });
 
     }
+
+    logoutMethod() {
+        fire.auth()
+            .signOut();
+    }
 }
 
 export default new FirebaseAuthProvider()
