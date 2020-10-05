@@ -22,14 +22,14 @@ function ListAds() {
     }, [setAds])
 
     return (
-        <div className="container">
+        <>
             <p className={styles.listAdsTitle}>List of advertisment</p>
             <div className={classNames(styles.adBlocks, 'row')}>
                 {ads.map((ad) => (
                     <AdBlockIndexPage adProp={ad} key={ad.id} />
                 ))}
             </div>
-        </div>
+        </>
     )
 }
 
