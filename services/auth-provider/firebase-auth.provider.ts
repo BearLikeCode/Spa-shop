@@ -3,6 +3,7 @@ import fire from "../../config/fire";
 class FirebaseAuthProvider implements AuthProviderContract {
 
     signupMethod(): any {
+
     }
 
     loginMethod(username: string, password: string) {
@@ -10,24 +11,27 @@ class FirebaseAuthProvider implements AuthProviderContract {
             .auth()
             .signInWithEmailAndPassword(username, password)
             .then(function(user) {
-                if (user) return true
+                console.log('success login')
             }).catch(function(error) {
                 const errorCode = error.code;
-                const errorMessage = error.message;
 
                 if (errorCode === 'auth/wrong-password') {
                     return 'Wrong password.';
                 } else {
-                    return errorMessage;
+                    return console.log(error);;
                 }
-            console.log(error);
         });
-
     }
 
     logoutMethod() {
-        fire.auth()
-            .signOut();
+        return fire.auth()
+            .signOut()
+            .then(() => {
+                console.log('success logout')
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 }
 
