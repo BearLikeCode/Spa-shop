@@ -11,13 +11,13 @@ function ProfileDetails() {
     }
 
     return (
-        <div className="container">
+        <>
             <p>Profile</p>
             <button onClick={handleLogout}>Logout</button>
             <Link href="/ad/createAd">Create ad</Link>
 
             <CreatedAds />
-        </div>
+        </>
     )
 }
 
