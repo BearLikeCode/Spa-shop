@@ -2,8 +2,17 @@ import {AuthProviderContract} from "./auth-provider.contract";
 import fire from "../../config/fire";
 class FirebaseAuthProvider implements AuthProviderContract {
 
-    signupMethod(): any {
-
+    signupMethod(username ,password, passConf): any {
+        if (password !== passConf) {
+            return console.log('Password and password confirmation does not   match')
+        } else {
+            return fire.auth()
+                .createUserWithEmailAndPassword(username, password)
+                .then(() => console.log('success'))
+                .catch((err) => {
+                    console.log(err.code, err.message)
+                })
+        }
     }
 
     loginMethod(username: string, password: string) {

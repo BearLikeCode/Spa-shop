@@ -6,7 +6,7 @@ interface AuthContextType {
     auth: boolean,
     loginUser: (username: string, password: string) => void,
     logoutUser: () => void,
-    signup: () => void
+    signupUser: (username: string, passsword: string, passconf: string) => void
 }
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType)
@@ -27,8 +27,8 @@ const AuthProvider = (props: {children: object}) => {
         authProvider.loginMethod(username, password).then(() => inAuth())
     }
 
-    const signup = () => {
-
+    const signupUser = (username: string, password: string, passconf: string) => {
+        authProvider.signupMethod(username, password, passconf)
     }
 
     const logoutUser = () => {
@@ -36,7 +36,7 @@ const AuthProvider = (props: {children: object}) => {
     }
 
     return (
-        <AuthContext.Provider value={{auth, loginUser, logoutUser, signup}} >
+        <AuthContext.Provider value={{auth, loginUser, logoutUser, signupUser}} >
             {props.children}
         </AuthContext.Provider>
     )
