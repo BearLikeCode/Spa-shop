@@ -4,10 +4,9 @@ import fire from "../config/fire";
 
 interface AuthContextType {
     auth: boolean,
-    inAuth: () => void,
-    outAuth: () => void,
     loginUser: (username: string, password: string) => void,
-    logoutUser: () => void
+    logoutUser: () => void,
+    signup: () => void
 }
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType)
@@ -19,7 +18,7 @@ const AuthProvider = (props: {children: object}) => {
     const inAuth = () => {
         changeAuth(true)
     }
-
+2
     const outAuth = () => {
         changeAuth(false)
     }
@@ -33,11 +32,11 @@ const AuthProvider = (props: {children: object}) => {
     }
 
     const logoutUser = () => {
-        authProvider.logoutMethod()
+        authProvider.logoutMethod().then(() => outAuth())
     }
 
     return (
-        <AuthContext.Provider value={{auth, loginUser, inAuth, outAuth, logoutUser}} >
+        <AuthContext.Provider value={{auth, loginUser, logoutUser, signup}} >
             {props.children}
         </AuthContext.Provider>
     )
