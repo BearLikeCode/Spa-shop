@@ -10,7 +10,7 @@ const validationSchema = yup.object({
 })
 
 const LoginForm = () => {
-    const { loginUser, inAuth } = useContext(AuthContext)
+    const { loginUser } = useContext(AuthContext)
     const router = useRouter()
     return (
         <Formik
