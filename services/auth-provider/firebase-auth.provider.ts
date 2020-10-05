@@ -15,7 +15,7 @@ class FirebaseAuthProvider implements AuthProviderContract {
         }
     }
 
-    loginMethod(username: string, password: string) {
+    loginMethod(username: string, password: string): any {
         return fire
             .auth()
             .signInWithEmailAndPassword(username, password)
@@ -32,7 +32,7 @@ class FirebaseAuthProvider implements AuthProviderContract {
         });
     }
 
-    logoutMethod() {
+    logoutMethod(): any {
         return fire.auth()
             .signOut()
             .then(() => {
