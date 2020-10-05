@@ -1,11 +1,12 @@
 import {createContext, useState} from "react";
 import {AuthProviderFactory} from "../services/auth-provider/auth-provider.factory";
+import fire from "../config/fire";
 
 interface AuthContextType {
     auth: boolean,
-    inAuth: () => void,
-    outAuth: () => void,
-    loginUser: (username: string, password: string) => void
+    loginUser: (username: string, password: string) => void,
+    logoutUser: () => void,
+    signupUser: (username: string, passsword: string, passconf: string) => void
 }
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType)
@@ -17,21 +18,25 @@ const AuthProvider = (props: {children: object}) => {
     const inAuth = () => {
         changeAuth(true)
     }
-
+2
     const outAuth = () => {
         changeAuth(false)
     }
 
     const loginUser = (username: string, password: string) => {
-        authProvider.loginMethod(username, password).then(data => console.log(data))
+        authProvider.loginMethod(username, password).then(() => inAuth())
     }
 
-    const signup = () => {
+    const signupUser = (username: string, password: string, passconf: string) => {
+        authProvider.signupMethod(username, password, passconf)
+    }
 
+    const logoutUser = () => {
+        authProvider.logoutMethod().then(() => outAuth())
     }
 
     return (
-        <AuthContext.Provider value={{auth, loginUser, inAuth, outAuth}} >
+        <AuthContext.Provider value={{auth, loginUser, logoutUser, signupUser}} >
             {props.children}
         </AuthContext.Provider>
     )

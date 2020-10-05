@@ -8,7 +8,9 @@ function MyApp({ Component, pageProps }) {
     <AuthProvider>
       <AdsProvider>
         <Navbar />
-        <Component {...pageProps} />
+        <div className="container bodyMarginTop">
+          <Component {...pageProps} />
+        </div>
       </AdsProvider>
     </AuthProvider>
   </>

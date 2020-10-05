@@ -2,7 +2,17 @@ import {AuthProviderContract} from "./auth-provider.contract";
 import fire from "../../config/fire";
 class FirebaseAuthProvider implements AuthProviderContract {
 
-    signupMethod(): any {
+    signupMethod(username ,password, passConf): any {
+        if (password !== passConf) {
+            return console.log('Password and password confirmation does not   match')
+        } else {
+            return fire.auth()
+                .createUserWithEmailAndPassword(username, password)
+                .then(() => console.log('success'))
+                .catch((err) => {
+                    console.log(err.code, err.message)
+                })
+        }
     }
 
     loginMethod(username: string, password: string) {
@@ -10,19 +20,27 @@ class FirebaseAuthProvider implements AuthProviderContract {
             .auth()
             .signInWithEmailAndPassword(username, password)
             .then(function(user) {
-                if (user) return true
+                console.log('success login')
             }).catch(function(error) {
                 const errorCode = error.code;
-                const errorMessage = error.message;
 
                 if (errorCode === 'auth/wrong-password') {
                     return 'Wrong password.';
                 } else {
-                    return errorMessage;
+                    return console.log(error);;
                 }
-            console.log(error);
         });
+    }
 
+    logoutMethod() {
+        return fire.auth()
+            .signOut()
+            .then(() => {
+                console.log('success logout')
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 }
 

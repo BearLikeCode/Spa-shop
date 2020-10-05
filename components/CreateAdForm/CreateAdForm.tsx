@@ -19,7 +19,6 @@ function CreateAdForm() {
     const [defStatusAd, setDefStatusAd] = useState('Public')
 
     return (
-        <div className="container">
             <Formik
                 validationSchema={validationSchema}
                 initialValues={{
@@ -29,7 +28,6 @@ function CreateAdForm() {
                     statusAd: '',
                 }}
                 onSubmit={(values) => {
-                    event.preventDefault()
                     fire.firestore()
                         .collection('ads')
                         .add({ ...values, dateCreate: moment().unix() })
@@ -146,7 +144,6 @@ function CreateAdForm() {
                     </Form>
                 )}
             </Formik>
-        </div>
     )
 }
 

@@ -4,6 +4,7 @@ import CreatedAds from './CreatedAds/CreatedAds'
 import ListAds from './ListAds/ListAds'
 import AdBlockIndexPage from './AdBlockIndexPage/AdBlockIndexPage'
 import ProfileDetails from './ProfileDetails/ProfileDetails'
+import AdDetails from "./AdDetails/AdDetails";
 
 export {
     Navbar,
@@ -12,4 +13,5 @@ export {
     ListAds,
     AdBlockIndexPage,
     ProfileDetails,
+    AdDetails
 }
