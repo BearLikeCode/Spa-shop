@@ -1,4 +1,4 @@
-import Link from 'next/Link'
+import Link from 'next/link'
 import styles from './navbar.module.scss'
 import classNames from 'classnames'
 import {useContext} from "react";

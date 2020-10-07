@@ -1,4 +1,4 @@
-import Link from 'next/Link'
+import Link from 'next/link'
 import moment from 'moment'
 import styles from './AdBlockIndexPage.module.scss'
 
