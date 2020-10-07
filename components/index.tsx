@@ -1,21 +1,21 @@
-import navbar from './navbar/navbar'
-import createdAdForm from './createAdForm/createAdForm'
-import createdAds from './createdAds/createdAds'
-import listAds from './listAds/listAds'
-import adBlockIndexPage from './adBlockIndexPage/adBlockIndexPage'
-import profileDetails from './profileDetails/profileDetails'
-import adDetails from "./adDetails/adDetails";
-import loginForm from "./loginForm/loginForm";
-import signupForm from "./signupForm/signupForm";
+import Navbar from './navbar/navbar'
+import CreatedAdForm from './createAdForm/createAdForm'
+import CreatedAds from './createdAds/createdAds'
+import ListAds from './listAds/listAds'
+import AdBlockIndexPage from './adBlockIndexPage/adBlockIndexPage'
+import ProfileDetails from './profileDetails/profileDetails'
+import AdDetails from './adDetails/adDetails';
+import LoginForm from './loginForm/loginForm';
+import SignupForm from './signupForm/signupForm';
 
 export {
-    navbar,
-    createdAdForm,
-    createdAds,
-    listAds,
-    adBlockIndexPage,
-    profileDetails,
-    adDetails,
-    loginForm,
-    signupForm
+    Navbar,
+    CreatedAdForm,
+    CreatedAds,
+    ListAds,
+    AdBlockIndexPage,
+    ProfileDetails,
+    AdDetails,
+    LoginForm,
+    SignupForm,
 }

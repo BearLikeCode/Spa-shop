@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import { adsDataProviderFactory } from '../services/ads-data-provider/ads-data-provider.factory'
+import { adsDataProviderFactory } from '../services/adsDataProvider/ads-data-provider.factory'
 import { adType } from '../types/adType'
 
 interface AdsContextType {

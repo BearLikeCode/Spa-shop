@@ -10,7 +10,7 @@ const validationSchema = yup.object({
     password: yup.string().required('Please enter your password')
 })
 
-const loginForm = () => {
+const LoginForm = () => {
     const { loginUser } = useContext(AuthContext)
     const router = useRouter()
     return (
@@ -55,4 +55,4 @@ const loginForm = () => {
         </Formik>
     )
 }
-export default loginForm
+export default LoginForm

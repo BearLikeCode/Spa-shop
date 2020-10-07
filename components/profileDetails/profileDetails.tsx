@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import { createdAds } from '..'
+import { CreatedAds } from '..'
 import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../../context/AuthContext";
 import styles from './profileDetails.module.scss';
 import fire from "../../config/fire";
 
-function profileDetails() {
+function ProfileDetails() {
     const { logoutUser } = useContext(AuthContext)
     const [ email, changeEmail ] = useState('')
 
@@ -42,10 +42,10 @@ function profileDetails() {
                     <Link href="/ad/createAd"><p className={styles.profileDetails__btn}>Create ad</p></Link>
                     <button onClick={handleLogout} className={styles.profileDetails__btn}>Logout</button>
                 </div>
-                <createdAds />
+                <CreatedAds />
             </div>
         </>
     )
 }
 
-export default profileDetails
+export default ProfileDetails
