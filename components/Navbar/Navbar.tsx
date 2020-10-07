@@ -9,23 +9,26 @@ function Navbar() {
 
     return (
         <div className={styles.navbar}>
-            <div className={classNames('container', styles.navbarRow)}>
+            <div className={classNames('container', styles.navbar__row)}>
                 <Link href="/">
-                    <p className={styles.navbarLogo}>SPA Shop</p>
+                    <p className={styles.navbar__logo}>SPA Shop</p>
                 </Link>
                 <div>
                     {!auth ? (
                         <>
                             <Link href="/user/register">
-                                <a>Register</a>
-                            </Link>{' '}
+                                <span className={classNames(styles.navbar__color, styles.navbar__register)}>Register</span>
+                            </Link>
                             |
                             <Link href="/user/login">
-                                <a> Login</a>
+                                <span className={classNames(styles.navbar__color, styles.navbar__login)}>Login</span>
                             </Link>
 
                         </>
-                    ) :<Link href="/user/profile">User</Link>}
+                    ) :
+                        <Link href="/user/profile">
+                            <span className={styles.navbar__color}>User</span>
+                        </Link>}
                 </div>
             </div>
         </div>
