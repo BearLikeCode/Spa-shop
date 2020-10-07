@@ -2,7 +2,7 @@ import Link from 'next/link'
 import styles from './navbar.module.scss'
 import classNames from 'classnames'
 import {useContext} from "react";
-import {AuthContext} from "../../context/AuthContext";
+import {AuthContext} from "../../context/authContext";
 
 function Navbar() {
     const { auth } = useContext(AuthContext)

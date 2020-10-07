@@ -1,6 +1,6 @@
 import {useContext} from 'react'
 import { useRouter } from 'next/router'
-import {AuthContext} from "../../context/AuthContext";
+import {AuthContext} from "../../context/authContext";
 import * as yup from 'yup'
 import {Form, Formik, Field} from "formik";
 import styles from './loginForm.module.scss';
