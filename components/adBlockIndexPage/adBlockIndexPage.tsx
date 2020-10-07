@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import moment from 'moment'
-import styles from './AdBlockIndexPage.module.scss'
+import styles from './adBlockIndexPage.module.scss'
 
-function AdBlockIndexPage(props) {
+function adBlockIndexPage(props) {
     const { adProp } = props
     return (
         <div className={styles.adBlock} key={adProp.id}>
@@ -33,4 +33,4 @@ function AdBlockIndexPage(props) {
     )
 }
 
-export default AdBlockIndexPage
+export default adBlockIndexPage

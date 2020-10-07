@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import fire from '../../config/fire'
-import AdBlockIndexPage from '../AdBlockIndexPage/AdBlockIndexPage'
+import adBlockIndexPage from '../adBlockIndexPage/adBlockIndexPage'
 import styles from './ListAds.module.scss'
 import classNames from 'classnames'
 
@@ -26,7 +26,7 @@ function ListAds() {
             <p className={styles.listAdsTitle}>List of advertisment</p>
             <div className={classNames(styles.adBlocks, 'row')}>
                 {ads.map((ad) => (
-                    <AdBlockIndexPage adProp={ad} key={ad.id} />
+                    <adBlockIndexPage adProp={ad} key={ad.id} />
                 ))}
             </div>
         </>

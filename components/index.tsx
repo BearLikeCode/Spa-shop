@@ -2,16 +2,16 @@ import Navbar from './Navbar/Navbar'
 import CreatedAdForm from './CreateAdForm/CreateAdForm'
 import CreatedAds from './CreatedAds/CreatedAds'
 import ListAds from './ListAds/ListAds'
-import AdBlockIndexPage from './AdBlockIndexPage/AdBlockIndexPage'
+import adBlockIndexPage from './adBlockIndexPage/adBlockIndexPage'
 import ProfileDetails from './ProfileDetails/ProfileDetails'
-import AdDetails from "./AdDetails/AdDetails";
+import adDetails from "./adDetails/adDetails";
 
 export {
     Navbar,
     CreatedAdForm,
     CreatedAds,
     ListAds,
-    AdBlockIndexPage,
+    adBlockIndexPage,
     ProfileDetails,
-    AdDetails
+    adDetails
 }

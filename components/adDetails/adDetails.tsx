@@ -4,7 +4,7 @@ import styles from './adDetails.module.scss'
 import { AdsContext } from '../../context/AdsContext'
 import { adType } from '../../types/adType'
 
-function AdDetails(props: { id: string }) {
+function adDetails(props: { id: string }) {
     const { getAd } = useContext(AdsContext)
     const [ad, setAd] = useState<adType>({} as adType)
 
@@ -38,4 +38,4 @@ function AdDetails(props: { id: string }) {
     )
 }
 
-export default AdDetails
+export default adDetails
