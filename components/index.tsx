@@ -1,4 +1,4 @@
-import Navbar from './Navbar/Navbar'
+import navbar from './navbar/navbar'
 import createdAdForm from './createAdForm/createAdForm'
 import createdAds from './createdAds/createdAds'
 import listAds from './listAds/listAds'
@@ -8,7 +8,7 @@ import adDetails from "./adDetails/adDetails";
 import loginForm from "./loginForm/loginForm";
 
 export {
-    Navbar,
+    navbar,
     createdAdForm,
     createdAds,
     listAds,

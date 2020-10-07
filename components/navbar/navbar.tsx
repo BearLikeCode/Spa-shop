@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import {useContext} from "react";
 import {AuthContext} from "../../context/AuthContext";
 
-function Navbar() {
+function navbar() {
     const { auth } = useContext(AuthContext)
 
     return (
@@ -35,4 +35,4 @@ function Navbar() {
     )
 }
 
-export default Navbar
+export default navbar
