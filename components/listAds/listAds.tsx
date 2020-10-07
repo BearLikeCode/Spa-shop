@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import fire from '../../config/fire'
 import adBlockIndexPage from '../adBlockIndexPage/adBlockIndexPage'
-import styles from './ListAds.module.scss'
+import styles from './listAds.module.scss'
 import classNames from 'classnames'
 
-function ListAds() {
+function listAds() {
     const [ads, setAds] = useState([])
 
     useEffect(() => {
@@ -33,4 +33,4 @@ function ListAds() {
     )
 }
 
-export default ListAds
+export default listAds
