@@ -1,4 +1,4 @@
-import { AdsDataProviderContract } from './ads-data-provider.contract'
+import { AdsDataProviderContract } from './adsDataProvider.contract'
 import fire from '../../config/fire'
 import { adType } from '../../types/adType'
 

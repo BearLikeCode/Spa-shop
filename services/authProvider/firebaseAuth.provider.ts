@@ -1,4 +1,4 @@
-import {AuthProviderContract} from "./auth-provider.contract";
+import {AuthProviderContract} from "./authProvider.contract";
 import fire from "../../config/fire";
 class FirebaseAuthProvider implements AuthProviderContract {
 

@@ -1,4 +1,4 @@
-import FirebaseAuthProvider from "./firebase-auth.provider";
+import FirebaseAuthProvider from "./firebaseAuth.provider";
 
 export function AuthProviderFactory() {
     return FirebaseAuthProvider;

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import moment from 'moment'
 import styles from './adDetails.module.scss'
-import { AdsContext } from '../../context/AdsContext'
+import { AdsContext } from '../../context/adsContext'
 import { adType } from '../../types/adType'
 
 function adDetails(props: { id: string }) {
