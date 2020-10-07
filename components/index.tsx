@@ -5,6 +5,7 @@ import listAds from './listAds/listAds'
 import adBlockIndexPage from './adBlockIndexPage/adBlockIndexPage'
 import ProfileDetails from './ProfileDetails/ProfileDetails'
 import adDetails from "./adDetails/adDetails";
+import loginForm from "./loginForm/loginForm";
 
 export {
     Navbar,
@@ -13,5 +14,6 @@ export {
     listAds,
     adBlockIndexPage,
     ProfileDetails,
-    adDetails
+    adDetails,
+    loginForm
 }
