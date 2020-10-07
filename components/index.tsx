@@ -6,6 +6,7 @@ import adBlockIndexPage from './adBlockIndexPage/adBlockIndexPage'
 import profileDetails from './profileDetails/profileDetails'
 import adDetails from "./adDetails/adDetails";
 import loginForm from "./loginForm/loginForm";
+import signupForm from "./signupForm/signupForm";
 
 export {
     navbar,
@@ -15,5 +16,6 @@ export {
     adBlockIndexPage,
     profileDetails,
     adDetails,
-    loginForm
+    loginForm,
+    signupForm
 }
