@@ -14,7 +14,7 @@ const validationSchema = yup.object({
     statusAd: yup.string().required('Please enter Advertisement status'),
 })
 
-function CreateAdForm() {
+function createAdForm() {
     const [defPlaceAd, setDefPlaceAd] = useState(['Google'])
     const [defStatusAd, setDefStatusAd] = useState('Public')
 
@@ -147,4 +147,4 @@ function CreateAdForm() {
     )
 }
 
-export default CreateAdForm
+export default createAdForm
