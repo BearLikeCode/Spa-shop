@@ -1,6 +1,5 @@
 import {createContext, useState} from "react";
-import {AuthProviderFactory} from "../services/auth-provider/auth-provider.factory";
-import fire from "../config/fire";
+import {AuthProviderFactory} from "../services/authProvider/auth-provider.factory";
 
 interface AuthContextType {
     auth: boolean,

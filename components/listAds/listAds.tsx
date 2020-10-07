@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import fire from '../../config/fire'
-import AdBlockIndexPage from '../AdBlockIndexPage/AdBlockIndexPage'
-import styles from './ListAds.module.scss'
+import { AdBlockIndexPage } from '..'
+import styles from './listAds.module.scss'
 import classNames from 'classnames'
 
 function ListAds() {

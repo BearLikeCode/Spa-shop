@@ -1,0 +1,36 @@
+.profileDetails {
+  &__row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+  }
+  &__profile {
+    margin-right: 40px;
+    min-width: 280px;
+  }
+  &__title {
+    font-size: 26px;
+    font-family: Montserrat, sans-serif;
+    margin: 0 0 20px;
+  }
+  &__btn {
+    display: block;
+    margin-bottom: 10px;
+    border: none;
+    padding: 10px 40px;
+    width: 200px;
+    text-align: left;
+    &:hover {
+      cursor: pointer;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.profile {
+  &__email {
+    margin-bottom: 20px;
+  }
+}

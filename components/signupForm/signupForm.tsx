@@ -1,5 +1,4 @@
-import {useContext, useState} from 'react'
-import fire from '../../config/fire'
+import {useContext} from 'react'
 import { useRouter } from 'next/router'
 import {AuthContext} from "../../context/AuthContext";
 import styles from './signupForm.module.scss'
@@ -7,7 +6,9 @@ import {Field, Form, Formik} from "formik";
 import * as yup from 'yup';
 
 const validationSchema = yup.object({
-    username: yup.string().required('Please enter your username'),
+    name: yup.string().required('Please enter your username'),
+    surname: yup.string().required('Please enter your surname'),
+    email: yup.string().required('Please enter your mail'),
     password: yup.string().required('Please enter your password'),
     passConf: yup.string().required('Please enter confirmed your password')
 })
@@ -20,12 +21,14 @@ const SignupForm = () => {
         <Formik
             validationSchema={validationSchema}
             initialValues={{
-                username: '',
+                name: '',
+                surname: '',
+                email: '',
                 password: '',
                 passConf: ''
             }}
             onSubmit={(values) => {
-                signupUser(values.username, values.password, values.passConf)
+                signupUser(values.email, values.password, values.passConf)
                 alert('Success')
                 router.push('/')
             }}
@@ -33,14 +36,30 @@ const SignupForm = () => {
             {({errors, touched}) => (
                 <Form>
                     <h1 className={styles.signupForm__title}>Create new user</h1>
-                    <label htmlFor="username" className={styles.signupForm__label}>Email:{' '}
+                    <label htmlFor="name" className={styles.signupForm__label}>Name:{' '}
                         <Field
-                            id="username"
-                            name="username"
-                            placeholder="username"
+                            id="name"
+                            name="name"
+                            placeholder="name"
                             className={styles.signupForm__field}
                         />
-                        </label>
+                    </label>
+                    <label htmlFor="surname" className={styles.signupForm__label}>Surname:{' '}
+                        <Field
+                            id="surname"
+                            name="surname"
+                            placeholder="surname"
+                            className={styles.signupForm__field}
+                        />
+                    </label>
+                    <label htmlFor="username" className={styles.signupForm__label}>Email:{' '}
+                        <Field
+                            id="email"
+                            name="email"
+                            placeholder="email"
+                            className={styles.signupForm__field}
+                        />
+                    </label>
                     <label htmlFor="password" className={styles.signupForm__label}>
                         Password:{' '}
                         <Field

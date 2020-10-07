@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import fire from '../../config/fire'
-import Link from 'next/Link'
+import Link from 'next/link'
 
-function CreatedAds() {
+function createdAds() {
     const [ads, setAds] = useState([])
 
     useEffect(() => {
@@ -30,4 +30,4 @@ function CreatedAds() {
     )
 }
 
-export default CreatedAds
+export default createdAds

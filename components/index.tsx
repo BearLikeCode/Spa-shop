@@ -1,10 +1,12 @@
-import Navbar from './Navbar/Navbar'
-import CreatedAdForm from './CreateAdForm/CreateAdForm'
-import CreatedAds from './CreatedAds/CreatedAds'
-import ListAds from './ListAds/ListAds'
-import AdBlockIndexPage from './AdBlockIndexPage/AdBlockIndexPage'
-import ProfileDetails from './ProfileDetails/ProfileDetails'
-import AdDetails from "./AdDetails/AdDetails";
+import Navbar from './navbar/navbar'
+import CreatedAdForm from './createAdForm/createAdForm'
+import CreatedAds from './createdAds/createdAds'
+import ListAds from './listAds/listAds'
+import AdBlockIndexPage from './adBlockIndexPage/adBlockIndexPage'
+import ProfileDetails from './profileDetails/profileDetails'
+import AdDetails from './adDetails/adDetails';
+import LoginForm from './loginForm/loginForm';
+import SignupForm from './signupForm/signupForm';
 
 export {
     Navbar,
@@ -13,5 +15,7 @@ export {
     ListAds,
     AdBlockIndexPage,
     ProfileDetails,
-    AdDetails
+    AdDetails,
+    LoginForm,
+    SignupForm,
 }
