@@ -45,15 +45,16 @@ class FirebaseAuthProvider implements AuthProviderContract {
         return fire
             .auth()
             .signInWithEmailAndPassword(username, password)
-            .then(function(user) {
-                console.log('success login')
-            }).catch(function(error) {
+            .then((user) => {
+                return true;
+            }).catch((error) => {
                 const errorCode = error.code;
                 if (errorCode === 'auth/wrong-password') {
                     return 'Wrong password.';
                 } else {
                     return console.log(error);;
                 }
+                return false;
         });
     }
 
