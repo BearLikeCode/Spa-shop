@@ -30,6 +30,13 @@
 }
 
 .profile {
+  &__image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: scale-down;
+    margin-bottom: 20px;
+  }
   &__email {
     margin-bottom: 20px;
   }

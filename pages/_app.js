@@ -1,7 +1,7 @@
 import '../styles/globals.scss'
 import {Navbar} from "../components";
-import {AdsProvider} from "../context/AdsContext";
-import {AuthProvider} from "../context/AuthContext";
+import {AdsProvider} from "../context/adsContext";
+import {AuthProvider} from "../context/authContext";
 
 function MyApp({ Component, pageProps }) {
   return <>
