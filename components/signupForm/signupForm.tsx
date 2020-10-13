@@ -7,7 +7,6 @@ import * as yup from 'yup';
 
 const validationSchema = yup.object({
     name: yup.string().required('Please enter your username'),
-    surname: yup.string().required('Please enter your surname'),
     email: yup.string().required('Please enter your mail'),
     password: yup.string().required('Please enter your password'),
     passConf: yup.string().required('Please enter confirmed your password')
@@ -22,18 +21,17 @@ const SignupForm = () => {
             validationSchema={validationSchema}
             initialValues={{
                 name: '',
-                surname: '',
                 email: '',
                 password: '',
                 passConf: ''
             }}
             onSubmit={(values) => {
-                signupUser(values.email, values.password, values.passConf)
+                signupUser(values.name, values.email, values.password, values.passConf, values.file)
                 alert('Success')
                 router.push('/')
             }}
         >
-            {({errors, touched}) => (
+            {({errors, touched, setFieldValue}) => (
                 <Form>
                     <h1 className={styles.signupForm__title}>Create new user</h1>
                     <label htmlFor="name" className={styles.signupForm__label}>Name:{' '}
@@ -41,14 +39,6 @@ const SignupForm = () => {
                             id="name"
                             name="name"
                             placeholder="name"
-                            className={styles.signupForm__field}
-                        />
-                    </label>
-                    <label htmlFor="surname" className={styles.signupForm__label}>Surname:{' '}
-                        <Field
-                            id="surname"
-                            name="surname"
-                            placeholder="surname"
                             className={styles.signupForm__field}
                         />
                     </label>
@@ -77,6 +67,12 @@ const SignupForm = () => {
                             placeholder="password confirm"
                             className={styles.signupForm__field}
                         />
+                    </label>
+                    <label htmlFor="file" className={styles.signupForm__label}>
+                        Select image
+                        <input id="file" name="file" type="file" onChange={(event) => {
+                            setFieldValue("file", event.currentTarget.files[0]);
+                        }} className={styles.signupForm__field}/>
                     </label>
                     <button type="submit" className={styles.signupForm__btn}>Sign up</button>
                 </Form>
