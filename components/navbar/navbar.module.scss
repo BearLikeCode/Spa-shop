@@ -11,7 +11,6 @@
     &__logo {
         font-family: Montserrat, sans-serif;
         font-size: 20px;
-        cursor: pointer;
     }
     &__login {
         margin-left: 10px;
@@ -21,5 +20,8 @@
     }
     &__color {
         color: white;
+    }
+    &__link {
+        cursor: pointer;
     }
 }

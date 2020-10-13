@@ -6,28 +6,27 @@ import {AuthContext} from "../../context/authContext";
 
 function Navbar() {
     const { auth } = useContext(AuthContext)
-
     return (
         <div className={styles.navbar}>
             <div className={classNames('container', styles.navbar__row)}>
                 <Link href="/">
-                    <p className={styles.navbar__logo}>SPA Shop</p>
+                    <p className={classNames(styles.navbar__logo, styles.navbar__link)}>SPA Shop</p>
                 </Link>
                 <div>
                     {!auth ? (
                         <>
                             <Link href="/user/register">
-                                <span className={classNames(styles.navbar__color, styles.navbar__register)}>Register</span>
+                                <span className={classNames(styles.navbar__color, styles.navbar__register, styles.navbar__link)}>Register</span>
                             </Link>
                             |
                             <Link href="/user/login">
-                                <span className={classNames(styles.navbar__color, styles.navbar__login)}>Login</span>
+                                <span className={classNames(styles.navbar__color, styles.navbar__login, styles.navbar__link)}>Login</span>
                             </Link>
 
                         </>
                     ) :
                         <Link href="/user/profile">
-                            <span className={styles.navbar__color}>User</span>
+                            <span className={classNames(styles.navbar__color, styles.navbar__link)}>User</span>
                         </Link>}
                 </div>
             </div>
