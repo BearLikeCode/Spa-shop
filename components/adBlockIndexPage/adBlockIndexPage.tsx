@@ -2,14 +2,16 @@ import Link from 'next/link'
 import Router from 'next/router'
 import moment from 'moment'
 import styles from './adBlockIndexPage.module.scss'
-import {useContext} from "react";
-import {AuthContext} from "../../context/authContext";
+import { useContext } from 'react'
+import { AuthContext } from '../../context/authContext'
+import { AdsContext } from '../../context/adsContext'
 
 function adBlockIndexPage(props) {
     const { auth } = useContext(AuthContext)
+    const { takeAd } = useContext(AdsContext)
 
     const subscribeButton = (e) => {
-        auth ? console.log('test') : Router.push('/user/register')
+        if (auth) takeAd(adProp.id)
     }
 
     const { adProp } = props
@@ -38,7 +40,13 @@ function adBlockIndexPage(props) {
                 <span className={styles.adBlock__title}>Date create:</span>{' '}
                 {moment.unix(adProp.dateCreate).format('MM/DD/YYYY')}
             </p>
-            <button type="submit" onClick={subscribeButton}>Take to my portfolio</button>
+            <button
+                type="submit"
+                onClick={subscribeButton}
+                className={styles.adBlock__button}
+            >
+                Take to my portfolio
+            </button>
         </div>
     )
 }
