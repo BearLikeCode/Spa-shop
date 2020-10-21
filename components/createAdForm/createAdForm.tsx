@@ -2,8 +2,9 @@ import { Formik, Form, Field } from 'formik'
 import fire from '../../config/fire'
 import styles from './createAdForm.module.scss'
 import * as yup from 'yup'
-import { useState } from 'react'
+import {useContext, useState} from 'react'
 import moment from 'moment'
+import {AdsContext} from "../../context/adsContext";
 
 const validationSchema = yup.object({
     nameAd: yup.string().required('Please enter Advertisement name'),
@@ -17,6 +18,7 @@ const validationSchema = yup.object({
 function createAdForm() {
     const [defPlaceAd, setDefPlaceAd] = useState(['Google'])
     const [defStatusAd, setDefStatusAd] = useState('Public')
+    const { createAd } = useContext(AdsContext)
 
     return (
             <Formik
@@ -28,9 +30,7 @@ function createAdForm() {
                     statusAd: '',
                 }}
                 onSubmit={(values) => {
-                    fire.firestore()
-                        .collection('ads')
-                        .add({ ...values, dateCreate: moment().unix() })
+                    createAd(values)
                     alert('Success')
                 }}
             >
