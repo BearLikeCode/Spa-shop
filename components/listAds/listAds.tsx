@@ -1,33 +1,30 @@
-import { useState, useEffect } from 'react'
-import fire from '../../config/fire'
+import { useEffect, useContext, useState } from 'react'
 import { AdBlockIndexPage } from '..'
+import { AdsContext } from '../../context/adsContext'
 import styles from './listAds.module.scss'
 import classNames from 'classnames'
 
 function ListAds() {
-    const [ads, setAds] = useState([])
+    const { getAdsList, getAdsByEmail } = useContext(AdsContext)
+    const [adsList, addAds] = useState([])
 
     useEffect(() => {
-        fire.firestore()
-            .collection('ads')
-            .where('statusAd', '==', 'Public')
-            //.orderBy('dateCreate', 'desc')
-            .onSnapshot((snap) => {
-                const adsFire = snap.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data(),
-                }))
-                setAds(adsFire)
-            })
-    }, [setAds])
+        ;(async () => {
+            addAds(await getAdsList())
+        })()
+    }, [])
 
     return (
         <>
             <p className={styles.listAdsTitle}>List of advertisment</p>
             <div className={classNames(styles.adBlocks, 'row')}>
-                {ads.map((ad) => (
-                    <AdBlockIndexPage adProp={ad} key={ad.id} />
-                ))}
+                {adsList ? (
+                    adsList.map((ad, index) => (
+                        <AdBlockIndexPage adProp={ad} key={index} />
+                    ))
+                ) : (
+                    <p>No Ads</p>
+                )}
             </div>
         </>
     )
