@@ -1,31 +1,38 @@
-import { useState, useEffect } from 'react'
-import fire from '../../config/fire'
-import Link from 'next/link'
+import { useEffect, useContext, useState } from 'react'
+import { AdsContext } from '../../context/adsContext'
+import styles from './createdAds.module.scss'
 
 function createdAds() {
-    const [ads, setAds] = useState([])
+    const { getAdsByEmail } = useContext(AdsContext)
+    const [adsList, setAds] = useState()
 
     useEffect(() => {
-        fire.firestore()
-            .collection('ads')
-            .onSnapshot(snap => {
-                const adsFire = snap.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                }));
-                setAds(adsFire);
-            });
-    }, [setAds])
-    console.log(ads)
+        ;(async () => {
+            setAds(await getAdsByEmail())
+        })()
+    }, [])
+
     return (
-        <div>
-            {ads.map(ad =>
-                <li key={ad.id}>
-                    <Link href="/ad/[id]" as={'/ad/' + ad.id }>
-                        <p>{ad.nameAd}</p>
-                    </Link>
-                </li>
-            )}
+        <div className={styles.createdAds}>
+            <p className={styles.createdAdsTitle}>Created Ads</p>
+            <div className={styles.createdAdsRow}>
+                {adsList ? (
+                    adsList.map((item) => (
+                        <div className={styles.createdAdsItem}>
+                            <p>Name Ad: {item.nameAd}</p>
+                            <p>Description Ad: {item.descriptionAd}</p>
+                            <p>Place Ad: </p>
+                            <ul>
+                                {item.placeAd.map((item) => (
+                                    <li>{item}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))
+                ) : (
+                    <p>No created Ads</p>
+                )}
+            </div>
         </div>
     )
 }
