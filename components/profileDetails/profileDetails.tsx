@@ -17,7 +17,9 @@ function ProfileDetails() {
             <p className={styles.profileDetails__title}>Profile</p>
             <div className={styles.profileDetails__row}>
                 <div className={styles.profileDetails__profile}>
-                    {userData.userImage ? <img src={`${userData.userImage}`} alt="" className={styles.profile__image}/> : <p>No image</p>}
+                    <div className={styles.profile__image}>
+                        {userData.userImage ? <img src={`${userData.userImage}`} alt=""/> : <p>No image</p>}
+                    </div>
                     <p className={styles.profile__email}>Name: {userData.userName}</p>
                     <p className={styles.profile__email}>Email: {userData.userEmail}</p>
                     <Link href="/ad/createAd"><p className={styles.profileDetails__btn}>Create ad</p></Link>
