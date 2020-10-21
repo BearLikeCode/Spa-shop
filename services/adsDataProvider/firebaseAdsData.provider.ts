@@ -4,6 +4,32 @@ import { adType } from '../../types/adType'
 import moment from 'moment'
 
 class FirebaseAdsDataProvider implements AdsDataProviderContract {
+    takeAdWork = async (id: string, userEmail: string) => {
+        await fire
+            .firestore()
+            .collection('ads')
+            .doc(`${id}`)
+            .update({
+                performer: userEmail,
+            })
+            .then(() => {
+                console.log('Document successfully updated!')
+            })
+    }
+
+    getItemsProgressByEmail = async (email: string): Promise<any> =>
+        await fire
+            .firestore()
+            .collection('ads')
+            .where('performer', '==', `${email}`)
+            .get()
+            .then((data) =>
+                data.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }))
+            )
+
     getAds = async (): Promise<Array<any>> =>
         await fire
             .firestore()
