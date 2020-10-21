@@ -1,13 +1,13 @@
-import {useContext} from 'react'
+import { useContext } from 'react'
 import { useRouter } from 'next/router'
-import {AuthContext} from "../../context/authContext";
+import { AuthContext } from '../../context/authContext'
 import * as yup from 'yup'
-import {Form, Formik, Field} from "formik";
-import styles from './loginForm.module.scss';
+import { Form, Formik, Field } from 'formik'
+import styles from './loginForm.module.scss'
 
 const validationSchema = yup.object({
     email: yup.string().required('Please enter your email'),
-    password: yup.string().required('Please enter your password')
+    password: yup.string().required('Please enter your password'),
 })
 
 const LoginForm = () => {
@@ -18,7 +18,7 @@ const LoginForm = () => {
             validationSchema={validationSchema}
             initialValues={{
                 email: '',
-                password: ''
+                password: '',
             }}
             onSubmit={(values) => {
                 loginUser(values.email, values.password)
@@ -26,7 +26,7 @@ const LoginForm = () => {
                 router.push('/')
             }}
         >
-            {({errors, touched}) => (
+            {({ errors, touched }) => (
                 <Form>
                     <h1 className={styles.loginForm__title}>Login</h1>
                     <label htmlFor="email" className={styles.loginForm__label}>
@@ -37,9 +37,16 @@ const LoginForm = () => {
                             placeholder="email"
                             className={styles.loginForm__field}
                         />
-                        {(errors.email && touched.email) && <p className={styles.loginForm__error}>{errors.email}</p>}
+                        {errors.email && touched.email && (
+                            <p className={styles.loginForm__error}>
+                                {errors.email}
+                            </p>
+                        )}
                     </label>
-                    <label htmlFor="password" className={styles.loginForm__label}>
+                    <label
+                        htmlFor="password"
+                        className={styles.loginForm__label}
+                    >
                         Password
                         <Field
                             id="password"
@@ -47,9 +54,15 @@ const LoginForm = () => {
                             placeholder="password"
                             className={styles.loginForm__field}
                         />
-                        {(errors.password && touched.password) && <p className={styles.loginForm__error}>{errors.password}</p> }
+                        {errors.password && touched.password && (
+                            <p className={styles.loginForm__error}>
+                                {errors.password}
+                            </p>
+                        )}
                     </label>
-                    <button type="submit" className={styles.loginForm__btn}>Login</button>
+                    <button type="submit" className={styles.loginForm__btn}>
+                        Login
+                    </button>
                 </Form>
             )}
         </Formik>
