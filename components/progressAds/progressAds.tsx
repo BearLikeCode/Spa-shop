@@ -4,7 +4,7 @@ import styles from './progressAds.module.scss'
 
 function progressAds() {
     const { getAdsProgressByEmail } = useContext(AdsContext)
-    const [adsList, setAds] = useState()
+    const [adsList, setAds] = useState([])
 
     useEffect(() => {
         ;(async () => {
@@ -12,11 +12,13 @@ function progressAds() {
         })()
     }, [])
 
+    console.log(adsList)
+
     return (
         <div className={styles.createdAds}>
             <p className={styles.createdAdsTitle}>Ads in progress</p>
             <div className={styles.createdAdsRow}>
-                {adsList ? (
+                {adsList.length !== 0 ? (
                     adsList.map((item) => (
                         <div className={styles.createdAdsItem}>
                             <p>Name Ad: {item.nameAd}</p>
