@@ -4,7 +4,7 @@ import styles from './createdAds.module.scss'
 
 function createdAds() {
     const { getAdsByEmail } = useContext(AdsContext)
-    const [adsList, setAds] = useState()
+    const [adsList, setAds] = useState([])
 
     useEffect(() => {
         ;(async () => {
@@ -16,7 +16,7 @@ function createdAds() {
         <div className={styles.createdAds}>
             <p className={styles.createdAdsTitle}>Created Ads</p>
             <div className={styles.createdAdsRow}>
-                {adsList ? (
+                {adsList.length !== 0 ? (
                     adsList.map((item) => (
                         <div className={styles.createdAdsItem}>
                             <p>Name Ad: {item.nameAd}</p>
