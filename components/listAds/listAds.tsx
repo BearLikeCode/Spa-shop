@@ -5,7 +5,7 @@ import styles from './listAds.module.scss'
 import classNames from 'classnames'
 
 function ListAds() {
-    const { getAdsList, getAdsByEmail } = useContext(AdsContext)
+    const { getAdsList } = useContext(AdsContext)
     const [adsList, addAds] = useState([])
 
     useEffect(() => {

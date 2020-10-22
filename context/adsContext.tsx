@@ -4,6 +4,8 @@ import { adType } from '../types/adType'
 import { AuthContext } from './authContext'
 
 interface AdsContextType {
+    takeAd: (id: string) => void
+    getAdsProgressByEmail: () => Promise<Array<any>>
     getAdsList: () => Promise<Array<any>>
     getAd: (id: string) => any
     getAdsByEmail: () => Promise<Array<any>>
@@ -13,11 +15,31 @@ interface AdsContextType {
 const AdsContext = createContext<AdsContextType>({} as AdsContextType)
 
 const AdsProvider = (props: { children: object }) => {
-    const { userData } = useContext(AuthContext)
+    const { auth, userData } = useContext(AuthContext)
     const adsProvider = adsDataProviderFactory()
 
+    const takeAd = (id: string) => {
+        return adsProvider.takeAdWork(id, userData.userEmail)
+    }
+
+    const getAdsProgressByEmail = async () => {
+        return await adsProvider
+            .getItemsProgressByEmail(userData.userEmail)
+            .then((data) => data)
+    }
+
     const getAdsList = async () => {
-        return await adsProvider.getAds().then((data) => data)
+        if (auth)
+            return await adsProvider
+                .getAds()
+                .then((data) =>
+                    data.filter(
+                        (item) =>
+                            item.createdMail !== userData.userEmail &&
+                            item.performer !== userData.userEmail
+                    )
+                )
+        else return await adsProvider.getAds().then((data) => data)
     }
 
     const getAd = (id: string) => {
@@ -36,7 +58,14 @@ const AdsProvider = (props: { children: object }) => {
 
     return (
         <AdsContext.Provider
-            value={{ getAdsList, getAd, getAdsByEmail, createAd }}
+            value={{
+                takeAd,
+                getAdsProgressByEmail,
+                getAdsList,
+                getAd,
+                getAdsByEmail,
+                createAd,
+            }}
         >
             {props.children}
         </AdsContext.Provider>
