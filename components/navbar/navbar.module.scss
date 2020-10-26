@@ -1,0 +1,27 @@
+.navbar {
+    padding: 10px 0;
+    background-color: #414141;
+    color: #fff;
+    &__row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__logo {
+        font-family: Montserrat, sans-serif;
+        font-size: 20px;
+    }
+    &__login {
+        margin-left: 10px;
+    }
+    &__register {
+        margin-right: 10px;
+    }
+    &__color {
+        color: white;
+    }
+    &__link {
+        cursor: pointer;
+    }
+}

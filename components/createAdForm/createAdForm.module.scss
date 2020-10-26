@@ -1,0 +1,32 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    
+    border: 1px solid #414141;
+    width: max-content;
+    border-radius: 10px;
+    padding: 30px 20px;
+}
+
+.label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    &Checkbox {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+}
+
+.field {
+    padding: 5px 10px;
+    margin-left: 20px;
+    &Checkbox {
+        margin-left: 10px;    
+    }
+}

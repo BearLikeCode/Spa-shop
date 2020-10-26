@@ -1,0 +1,15 @@
+.listAdsTitle {
+    font-size: 26px;
+    margin: 0 0 30px 20px;
+}
+
+.adBlocks {
+    margin: 0 0 40px;
+}
+
+@media screen and (max-width: 425px) {
+    .adBlocks {
+        display: flex;
+        justify-content: center;
+    }
+}

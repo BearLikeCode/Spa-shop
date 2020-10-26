@@ -1,0 +1,25 @@
+.loginForm {
+  &__title {
+    font-size: 26px;
+    font-family: Montserrat, sans-serif;
+    margin: 0 0 20px;
+  }
+  &__label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  &__field {
+    font-size: 16px;
+    margin-left: 20px;
+    padding: 4px 4px 4px 10px;
+  }
+  &__btn {
+    padding: 5px 0;
+    width: 150px;
+    border: none;
+  }
+  &__error {
+    margin-top: 5px;
+    color: red
+  }
+}
